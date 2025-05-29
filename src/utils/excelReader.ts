@@ -1,7 +1,12 @@
+import * as path from 'path';
 import * as XLSX from 'xlsx';
+import * as fs from 'fs';
 
-export function readExcelData(filePath: string, sheetName: string): Record<string, any> {
-  const workbook = XLSX.readFile(filePath);
+export function readExcelData(relativePath: string, sheetName: string): Record<string, any> {
+ 
+ const filePath = path.resolve(process.cwd(), relativePath);
+  
+ const workbook = XLSX.readFile(filePath);
   const sheet = workbook.Sheets[sheetName];
   if (!sheet) throw new Error(`Sheet "${sheetName}" not found in ${filePath}`);
 

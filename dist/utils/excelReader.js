@@ -34,8 +34,10 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readExcelData = readExcelData;
+const path = __importStar(require("path"));
 const XLSX = __importStar(require("xlsx"));
-function readExcelData(filePath, sheetName) {
+function readExcelData(relativePath, sheetName) {
+    const filePath = path.resolve(process.cwd(), relativePath);
     const workbook = XLSX.readFile(filePath);
     const sheet = workbook.Sheets[sheetName];
     if (!sheet)
