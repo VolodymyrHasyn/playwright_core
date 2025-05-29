@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node copy-data.mjs",
     "test": "cucumber-js --require dist/steps --require dist/support"
   },
   "keywords": [],
