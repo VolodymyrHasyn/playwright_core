@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 export function readExcelData(relativePath: string, sheetName: string): Record<string, any> {
  
- const filePath = path.resolve(process.cwd(), relativePath);
+ const filePath = path.resolve(__dirname, '..', '..', relativePath);
   
  const workbook = XLSX.readFile(filePath);
   const sheet = workbook.Sheets[sheetName];

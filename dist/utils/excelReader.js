@@ -37,7 +37,7 @@ exports.readExcelData = readExcelData;
 const path = __importStar(require("path"));
 const XLSX = __importStar(require("xlsx"));
 function readExcelData(relativePath, sheetName) {
-    const filePath = path.resolve(process.cwd(), relativePath);
+    const filePath = path.resolve(__dirname, '..', '..', relativePath);
     const workbook = XLSX.readFile(filePath);
     const sheet = workbook.Sheets[sheetName];
     if (!sheet)
